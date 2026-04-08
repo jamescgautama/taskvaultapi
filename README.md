@@ -1,61 +1,59 @@
 # TaskVault API
 
-A secure RESTful API built with Node.js and Express.js, providing robust backend scaffolding and authentication features.
+a secure REST api built with node.js and express.js, with backend scaffolding and authentication features.
 
 ## Description
 
-This project serves as the backend scaffolding for TaskVault, demonstrating a Clean Architecture approach. It includes essential security implementations, user authentication with JSON Web Tokens (JWT), rate limiting, error handling, and structured logging.
+this project assignment serves as the backend scaffolding for TaskVault. it includes essential security implementations, user authentication with JWT tokens, rate limiting, error handling, and structured logging
 
 ## Features
 
-*   **Clean Architecture:** Organized directory layout (controllers, routes, middleware, models, services).
-*   **Authentication:**
-    *   User registration (`/auth/register`) with secure bcrypt password hashing.
-    *   User login (`/auth/login`) with JWT generation (1-hour expiration).
-*   **Security:**
-    *   Passwords are never returned in API responses.
-    *   Protected route (`/user/me`) requiring a valid JWT Bearer token.
-    *   Rate limiting on authentication routes (5 requests per minute) to prevent abuse and brute-force attacks.
-*   **Logging:** Centralized error handling and request logging using Morgan, outputting to both console and a persisted `logs/app.log` file.
-*   **Environment Configuration:** Secure management of sensitive variables (like `JWT_SECRET`) using `dotenv`.
+*   **authentication:**
+    *   user registration (`/auth/register`) with  bcrypt password hashing
+    *   user login (`/auth/login`) with JWT generation (1-hour expiration)
+*   **security:**
+    *   passwords are never returned in API responses.
+    *   protected route (`/user/me`) requiring a valid JWT bearer token
+    *   rate limiting on authentication routes (5 requests per minute) to prevent abuse and brute-force attacks
+*   **logging:** centralized error handling and request logging using Morgan, outputting to both console and a persisted `logs/app.log` file
+*   **environment configuration:** secure management of sensitive variables (like `JWT_SECRET`) using `dotenv`
 
-## Tech Stack
+## tech stack
 
-*   **Node.js & Express.js:** Core framework.
-*   **bcrypt:** For password hashing.
-*   **jsonwebtoken (JWT):** For stateless authentication.
-*   **express-rate-limit:** For DDoS and brute-force protection on specific routes.
-*   **morgan:** HTTP request logger middleware.
-*   **dotenv:** Environment variable management.
+*   **Node.js & Express.js:** core framework
+*   **bcrypt:** for password hashing
+*   **jwt:** for stateless authentication
+*   **express-rate-limit:** for ddos and brute-force protection on specific routes
+*   **morgan:** http request logger middleware
+*   **dotenv:** environment variable management
 
-## Installation and Run Instructions
+## installation and run instructions
 
-1.  **Clone the Repository (or navigate to the directory):**
+1.  **clone the repo (or navigate to the directory):**
     ```bash
     cd securityscaffolding
     ```
 
-2.  **Install Dependencies:**
+2.  **install dependencies:**
     ```bash
     npm install
     ```
 
-3.  **Environment Setup:**
-    Copy the provided `.env.example` file to `.env`:
+3.  **environment setup:**
+    copy the provided `.env.example` file to `.env`:
     ```bash
     cp .env.example .env
     ```
-    Then, edit the `.env` file and provide a secure, random string for `JWT_SECRET`.
+    then, edit the `.env` file and provide a secure, random string for `JWT_SECRET`.
 
-4.  **Start the Server:**
+4.  **start the server:**
     ```bash
     npm start
     ```
-    *Note: By default, the app runs on `node server.js` as defined in `package.json` (you may add `"start": "node server.js"` to your scripts).*
 
-## API Endpoints
+## API endpoints
 
-### Authentication
+### authentication
 *   **`POST /auth/register`**
     *   Body: `{ "name": "User Name", "email": "user@example.com", "password": "yourpassword" }`
 *   **`POST /auth/login`**
